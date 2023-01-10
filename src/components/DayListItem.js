@@ -8,10 +8,15 @@ const DayListItem = (props) => {
     "--full": props.spots === 0
   })
 
+
   return (
     <li className = {dayClass} onClick={() => props.setDay(props.name)}>
       <h2 className="text--regular">{props.name}</h2>
-      <h3 className="text--light" >{props.spots} spots remaining</h3>
+      <h3 className="text--light" >
+        {props.spots === 0 && <span>no spots remaining</span>}
+        {props.spots === 1 && <span>1 spot remaining</span>}
+        {props.spots > 1 && <span>{props.spots} spots remaining </span>}  
+       </h3>
     </li>
   );
 } 
