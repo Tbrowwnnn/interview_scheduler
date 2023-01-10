@@ -3,11 +3,13 @@ import "components/DayListItem.scss"
 import classNames from "classnames";
 
 const DayListItem = (props) => {
-  const dayClass = classNames('day-list__item', {
-    "--selected": props.selected,
-    "--full": props.spots === 0
-  })
 
+  const dayClass = classNames({
+    "day-list__item": true,
+    "day-list__item--selected": props.selected,
+    "day-list__item--full": props.spots === 0
+    
+  })
 
   return (
     <li className = {dayClass} onClick={() => props.setDay(props.name)}>
