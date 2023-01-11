@@ -4,12 +4,12 @@ import "components/InterviewList.scss"
 
 
 const InterviewerList = (props) => {
-
   const interviewers = props.interviewers.map(inter => {
+    
     
     return(
 
-
+      
       <InterviewerListItem
       key={inter.id}
       name={inter.name}
