@@ -4,72 +4,54 @@ import "components/Application.scss";
 import { useState, useEffect } from "react";
 import Appointment from "./Appointment";
 import axios from 'axios';
-
-
-
-const appointments = {
-  "1": {
-    id: 1,
-    time: "12pm",
-  },
-  "2": {
-    id: 2,
-    time: "1pm",
-    interview: {
-      student: "Lydia Miller-Jones",
-      interviewer:{
-        id: 3,
-        name: "Sylvia Palmer",
-        avatar: "https://i.imgur.com/LpaY82x.png",
-      }
-    }
-  },
-  "3": {
-    id: 3,
-    time: "2pm",
-  },
-  "4": {
-    id: 4,
-    time: "3pm",
-    interview: {
-      student: "Archie Andrews",
-      interviewer:{
-        id: 4,
-        name: "Cohana Roy",
-        avatar: "https://i.imgur.com/FK8V841.jpg",
-      }
-    }
-  },
-  "5": {
-    id: 5,
-    time: "4pm",
-  }
-};
+import { getAppointmentsForDay } from "../helpers/selectors"
 
 
 const Application = function(props) {
-  
-  const [days, setDays] = useState([]);
-  const [day, setDay] = useState("Monday")
-    
+
+  // const [days, setDays] = useState([]);
+  // const [day, setDay] = useState("Monday")
+
+  const [state, setState] = useState({
+    day: 'Monday',
+    days: [],
+    appointments: {}
+  });
+
+
+
+  const setDay = day => setState({ ...state, day });
+
+
+
   useEffect(() => {
-    axios.get(`/api/days`).then(response => {
-      setDays([...response.data.results])
-      console.log('console.log', response.data.results)
-    },[])
+    Promise.all([
+      axios.get('/api/days'),
+      axios.get('/api/appointments')
+    ]).then((all) => {
+       setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data}));
+      
     })
+    }, []);
 
-  const data = Object.values(appointments).map(date => {
+    console.log('appoint', state.days);
 
-    return(
+    console.log('function return', getAppointmentsForDay(state, state.day));
+
+    const dailyAppointments = getAppointmentsForDay(state, state.day)
+
+
+  const data = dailyAppointments.map(date => {
+
+    return (
       <Appointment
-      key={date.id}
-      {...date}
-      /> 
-      )  
-    })
-    
-  console.log('here', data)
+        key={date.id}
+        {...date}
+      />
+    );
+  });
+
+  console.log('here', state);
   return (
     <main className="layout">
       <section className="sidebar">
@@ -80,8 +62,9 @@ const Application = function(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu"><DayList
-          days={days}
-          value={day}
+          id={state.days}
+          days={state.days}
+          value={state.day}
           onChange={setDay}
         /></nav>
         <img
@@ -95,6 +78,6 @@ const Application = function(props) {
       </section>
     </main>
   );
-}
+};
 
 export default Application;
