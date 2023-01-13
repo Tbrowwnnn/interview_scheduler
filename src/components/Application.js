@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Appointment from "./Appointment";
 import axios from 'axios';
 import { getAppointmentsForDay, getInterview } from "../helpers/selectors";
+import { useVisualMode } from '../hooks/useVisualMode'
 
 
 const Application = function(props) {
@@ -18,8 +19,6 @@ const Application = function(props) {
     appointments: {},
     interviewers:{}
   });
-
-
 
   const setDay = day => setState({ ...state, day });
 
@@ -40,8 +39,7 @@ const Application = function(props) {
   // console.log('function return', getAppointmentsForDay(state, state.day));
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-
-
+  
   const data = dailyAppointments.map(date => {
 
     const interview = getInterview(state, date.interview)
