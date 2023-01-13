@@ -4,7 +4,7 @@ import "components/Application.scss";
 import { useState, useEffect } from "react";
 import Appointment from "./Appointment";
 import axios from 'axios';
-import { getAppointmentsForDay, getInterview } from "../helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewerForDay } from "../helpers/selectors";
 import { useVisualMode } from '../hooks/useVisualMode'
 
 
@@ -39,6 +39,8 @@ const Application = function(props) {
   // console.log('function return', getAppointmentsForDay(state, state.day));
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
+
+  const interviewer = getInterviewerForDay(state, state.day)
   
   const data = dailyAppointments.map(date => {
 
@@ -50,6 +52,7 @@ const Application = function(props) {
         id={date.id}
         time={date.time}
         interview={interview}
+        interviewer={interviewer}
       />
     );
   });

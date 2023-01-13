@@ -18,6 +18,8 @@ const Appointment = (props) => {
     props.interview ? SHOW : EMPTY
   );
 
+  console.log('interviewer', props.interviewer)
+
   return(
     <article className="appointment">
       <Fragment>
@@ -33,7 +35,7 @@ const Appointment = (props) => {
       )}
       {mode === CREATE && 
         <Form
-        interviewers={[]} 
+        interviewers={props.interviewer} 
         onCancel={() => back()}
         />
         }

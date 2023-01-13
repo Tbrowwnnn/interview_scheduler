@@ -28,7 +28,7 @@ export function getAppointmentsForDay(state, day) {
   return data;
 }
 
-export function getAppointmentsForDay(state, day) {
+export function getInterviewerForDay(state, day) {
   let index = -1;
   if (state.days.length === 0) {
     return [];
@@ -44,13 +44,13 @@ export function getAppointmentsForDay(state, day) {
     return [];
   }
 
-  const appointmentList = state.days[index].appointments;
+  const interviewList = state.days[index].interviewers;
 
-  const data = Object.values(appointmentList).map(date => {
+  const data = Object.values(interviewList).map(date => {
     const dateToString = date.toString()
     
     return (
-      state.appointments[dateToString]
+      state.interviewers[dateToString]
     );
   });
 
