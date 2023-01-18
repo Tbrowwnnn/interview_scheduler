@@ -9,7 +9,7 @@ import "components/InterviewList.scss"
 
 const InterviewerList = (props) => {
   const interviewers = props.interviewers.map(inter => {
-    console.log(props.value)
+    // console.log(props.value)
      
     return(
 

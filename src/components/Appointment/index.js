@@ -52,7 +52,7 @@ const Appointment = (props) => {
   // console.log('interviewer', props)
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Fragment>
         <Header
           time={props.time}

@@ -1,3 +1,7 @@
+import axios from "axios";
+import { mockRejectedValueOnce } from "@testing-library/react"
+
+
 const fixtures = {
   days: [
     {
@@ -79,4 +83,24 @@ export default {
       });
     }
   })
+  , put: jest.fn(url => {
+    if(url.includes("/api/appointments/") ) {
+      return Promise.resolve({
+        status: 200, 
+        statusText: "OK",
+        data: fixtures.appointments
+      });
+    }
+  })
+  , delete: jest.fn(url => {
+    if(url.includes("/api/appointments")){
+      return Promise.resolve({
+        status: 200,
+        statusText: "OK",
+        data: fixtures.appointments
+      });
+    }
+  })
+  
 }
+
