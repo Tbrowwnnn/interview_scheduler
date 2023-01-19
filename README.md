@@ -26,7 +26,13 @@ Some of the features that are included are:
 
 ## Screenshots
 
+!["Main page of scheduler"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/scheduler_main.PNG)
 
+!["New appointment form"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/new-appointment-saved.PNG)
+
+!["New appointment on main page"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/new-appointment-saved.PNG)
+
+!["Delete appointment confirmation"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/delete-confirm.PNG)
 
 ## Setup
 
