@@ -28,7 +28,7 @@ Some of the features that are included are:
 
 !["Main page of scheduler"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/scheduler_main.PNG)
 
-!["New appointment form"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/new-appointment-saved.PNG)
+!["New appointment form"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/new_interview.PNG)
 
 !["New appointment on main page"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/new-appointment-saved.PNG)
 
