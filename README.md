@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to my interiew sheduler! interview scheduler is a single page application built with react that allows for the booking of interview appointments. 
+Welcome to my interiew scheduler! interview scheduler is a single page application built with react that allows for the booking of interview appointments. 
 
 ## Features
 
