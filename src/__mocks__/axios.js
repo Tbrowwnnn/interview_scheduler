@@ -1,5 +1,5 @@
 import axios from "axios";
-import { mockRejectedValueOnce } from "@testing-library/react"
+import { mockRejectedValueOnce } from "@testing-library/react";
 
 
 const fixtures = {
@@ -59,9 +59,9 @@ const fixtures = {
 
 export default {
   get: jest.fn(url => {
-    if(url === "/api/days") {
+    if (url === "/api/days") {
       return Promise.resolve({
-        status: 200, 
+        status: 200,
         statusText: "OK",
         data: fixtures.days
       });
@@ -69,7 +69,7 @@ export default {
 
     if (url === "/api/appointments") {
       return Promise.resolve({
-        status: 200, 
+        status: 200,
         statusText: "OK",
         data: fixtures.appointments
       });
@@ -77,23 +77,14 @@ export default {
 
     if (url === "/api/interviewers") {
       return Promise.resolve({
-        status: 200, 
+        status: 200,
         statusText: "OK",
         data: fixtures.interviewers
       });
     }
   })
   , put: jest.fn(url => {
-    if(url.includes("/api/appointments/") ) {
-      return Promise.resolve({
-        status: 200, 
-        statusText: "OK",
-        data: fixtures.appointments
-      });
-    }
-  })
-  , delete: jest.fn(url => {
-    if(url.includes("/api/appointments")){
+    if (url.includes("/api/appointments/")) {
       return Promise.resolve({
         status: 200,
         statusText: "OK",
@@ -101,6 +92,15 @@ export default {
       });
     }
   })
-  
+  , delete: jest.fn(url => {
+    if (url.includes("/api/appointments")) {
+      return Promise.resolve({
+        status: 200,
+        statusText: "OK",
+        data: fixtures.appointments
+      });
+    }
+  })
+
 }
 

@@ -8,13 +8,13 @@ import DayList from "components/DayList";
 import InterviewerList from "components/InterviewerList";
 import InterviewerListItem from "components/InterviewerListItem";
 import Appointment from "components/Appointment/index.js";
-import Header from "components/Appointment/Header.js"
-import Empty from "components/Appointment/Empty.js"
-import Show from "components/Appointment/Show.js"
-import Confirm from "components/Appointment/Confirm.js"
-import Status from "components/Appointment/Status.js"
-import Error from "components/Appointment/Error.js"
-import Form from "components/Appointment/Form.js"
+import Header from "components/Appointment/Header.js";
+import Empty from "components/Appointment/Empty.js";
+import Show from "components/Appointment/Show.js";
+import Confirm from "components/Appointment/Confirm.js";
+import Status from "components/Appointment/Status.js";
+import Error from "components/Appointment/Error.js";
+import Form from "components/Appointment/Form.js";
 
 storiesOf("Button", module)
   .addParameters({
@@ -146,75 +146,75 @@ storiesOf("Appointment", module)
     <Appointment />
   ))
   .add("Appointment with Time", () => (
-    <Appointment 
-     time='12pm'
+    <Appointment
+      time='12pm'
     />
   ))
   .add("Header", () => (
-    <Header 
-    time='12pm'
+    <Header
+      time='12pm'
     />
-    ))
-    .add("Empty", () => 
-    <Empty 
-     onAdd={action("onAdd")}
-     />
-     )
-     .add("Show", () => 
-     <Show
-     student="Lydia Miller-Jones"
-     interviewer={interviewer}
-     onEdit={action("onEdit")}
-     onDelete={action("onDelete")}
-     />
-     )
-     .add("Confirm", () => 
-     <Confirm 
-     message="Delete the appointment?"
-     onConfirm={action("onConfirm")}
-     onCancel={action("onCancel")}
-     />
-     )
-     .add("Status", () => 
-    <Status 
-    message="You've made a huge mistake..."
+  ))
+  .add("Empty", () =>
+    <Empty
+      onAdd={action("onAdd")}
     />
-    )
-    .add("Error", () => 
-    <Error 
-    message="I tried but I couldn't delete it"
-    onClose={action("onClose")}
+  )
+  .add("Show", () =>
+    <Show
+      student="Lydia Miller-Jones"
+      interviewer={interviewer}
+      onEdit={action("onEdit")}
+      onDelete={action("onDelete")}
     />
-    )
-    .add("Edit", () => 
-    <Form 
-    student="Darth Vader"
-    interviewer={3}
-    interviewers={interviewers}
-    onSave={action("onSave")}
-    onCancel={action("onCancel")}
+  )
+  .add("Confirm", () =>
+    <Confirm
+      message="Delete the appointment?"
+      onConfirm={action("onConfirm")}
+      onCancel={action("onCancel")}
     />
-    )
-    .add("Create", () => 
-    <Form 
-    interviewers={interviewers}
-    onSave={action("onSave")}
-    onCancel={action("onCancel")}
+  )
+  .add("Status", () =>
+    <Status
+      message="You've made a huge mistake..."
     />
-    )
-    .add("Appointment Empty", () => (
-      <Fragment>
-        <Appointment id={1} time="4pm" />
-        <Appointment time="5pm" />
-      </Fragment>
-    ))
-    .add("Appointment Booked", () => (
-      <Fragment>
+  )
+  .add("Error", () =>
+    <Error
+      message="I tried but I couldn't delete it"
+      onClose={action("onClose")}
+    />
+  )
+  .add("Edit", () =>
+    <Form
+      student="Darth Vader"
+      interviewer={3}
+      interviewers={interviewers}
+      onSave={action("onSave")}
+      onCancel={action("onCancel")}
+    />
+  )
+  .add("Create", () =>
+    <Form
+      interviewers={interviewers}
+      onSave={action("onSave")}
+      onCancel={action("onCancel")}
+    />
+  )
+  .add("Appointment Empty", () => (
+    <Fragment>
+      <Appointment id={1} time="4pm" />
+      <Appointment time="5pm" />
+    </Fragment>
+  ))
+  .add("Appointment Booked", () => (
+    <Fragment>
       <Appointment
         id={1}
         time="4pm"
         interview={{ student: "Lydia Miller-Jones", interviewer }}
-        />
+      />
       <Appointment time="5pm" />
     </Fragment>
-  ))
+  ));

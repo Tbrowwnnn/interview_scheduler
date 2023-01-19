@@ -1,4 +1,4 @@
-
+//function used to get an appointment based on the day that is fed into it. 
 export function getAppointmentsForDay(state, day) {
   let index = -1;
   if (state.days.length === 0) {
@@ -9,7 +9,7 @@ export function getAppointmentsForDay(state, day) {
     if (state.days[i].name === day) {
       index = i;
     }
-  } 
+  }
 
   if (index === -1) {
     return [];
@@ -18,8 +18,8 @@ export function getAppointmentsForDay(state, day) {
   const appointmentList = state.days[index].appointments;
 
   const data = Object.values(appointmentList).map(date => {
-    const dateToString = date.toString()
-    
+    const dateToString = date.toString();
+
     return (
       state.appointments[dateToString]
     );
@@ -28,8 +28,10 @@ export function getAppointmentsForDay(state, day) {
   return data;
 }
 
+//function used to get an interviewer based on whichever day is fed into it. 
 export function getInterviewerForDay(state, day) {
   let index = -1;
+  
   if (state.days.length === 0) {
     return [];
   }
@@ -38,7 +40,7 @@ export function getInterviewerForDay(state, day) {
     if (state.days[i].name === day) {
       index = i;
     }
-  } 
+  }
 
   if (index === -1) {
     return [];
@@ -47,8 +49,8 @@ export function getInterviewerForDay(state, day) {
   const interviewList = state.days[index].interviewers;
 
   const data = Object.values(interviewList).map(date => {
-    const dateToString = date.toString()
-    
+    const dateToString = date.toString();
+
     return (
       state.interviewers[dateToString]
     );
@@ -57,17 +59,18 @@ export function getInterviewerForDay(state, day) {
   return data;
 }
 
-export function getInterview(state, interview){
+//will locate an interviewer based on the interview number. 
+export function getInterview(state, interview) {
 
-  if(interview === null){
+  if (interview === null) {
     return null;
   }
-  const interviewString = interview.interviewer.toString()
+  const interviewString = interview.interviewer.toString();
 
   const retrievedInterviewer = state.interviewers[interviewString];
 
-  const interviewer = {student: interview.student, interviewer: retrievedInterviewer}
+  const interviewer = { student: interview.student, interviewer: retrievedInterviewer };
 
-  return interviewer
+  return interviewer;
 }
 

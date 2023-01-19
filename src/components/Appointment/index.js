@@ -25,7 +25,7 @@ const Appointment = (props) => {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-
+  //handles transitioning states when an appointment is saved
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -39,7 +39,7 @@ const Appointment = (props) => {
       .catch(error => transition(ERROR_SAVING, true));
   }
 
-
+  //handles transitioning states when an appointment is deleted
   function deleteInterview(event) {
     transition(DELETE, true);
 
@@ -48,15 +48,15 @@ const Appointment = (props) => {
       .catch(error => transition(ERROR_DELETE, true));
   }
 
-
-  // console.log('interviewer', props)
-
+  //defines what each state does when in that state and will set props based on that state. 
   return (
     <article className="appointment" data-testid="appointment">
       <Fragment>
+
         <Header
           time={props.time}
         />
+
         {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
         {mode === SHOW && (
           <Show
@@ -66,13 +66,14 @@ const Appointment = (props) => {
             onEdit={() => transition(EDIT)}
           />
         )}
-        {mode === EDIT && <Form
-          student={props.interview.student}
-          interviewer={props.interview.interviewer.id}
-          interviewers={props.interviewer}
-          onSave={(name, interviewer) => save(name, interviewer)}
-          onCancel={() => back()}
-        />}
+        {mode === EDIT &&
+          <Form
+            student={props.interview.student}
+            interviewer={props.interview.interviewer.id}
+            interviewers={props.interviewer}
+            onSave={(name, interviewer) => save(name, interviewer)}
+            onCancel={() => back()}
+          />}
         {mode === CONFIRM && (
           <Confirm
             message={"Are you sure you want to ruin everything?"}
@@ -99,7 +100,6 @@ const Appointment = (props) => {
             message={"Could not delete appointment"}
             onClose={() => back()}
           />}
-        {/* {props.interview ? <Show student={props.interview.student} interviewer={props.interview.interviewer}/> : <Empty />} */}
       </Fragment>
     </article>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 
+//element that represents a header that has the time slot and holds the form or appointment element.
 const Header = (props) => {
   return (
     <header className="appointment__time">

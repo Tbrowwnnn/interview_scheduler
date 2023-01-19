@@ -26,36 +26,37 @@ export default function useApplicationData() {
   }, []);
 
 
-//counts the amount of empty spots available.
+  //counts the amount of empty spots available.
   const countEmptySpots = (state) => {
-    const currentDay = state.days.find((day) =>  
-    day.name === state.day);
+    const currentDay = state.days.find((day) =>
+      day.name === state.day);
 
     const emptySpots = currentDay.appointments.filter(
       (id) => state.appointments[id].interview === null
     ).length;
-    
 
-     return emptySpots;
-  }
 
-//updates the spots in the navigation bar
+    return emptySpots;
+  };
+
+  //updates the spots in the navigation bar
   function updateSpots(state) {
-    const currentDay = state.days.find((day) => 
-    day.name === state.day);
+    const currentDay = state.days.find((day) =>
+      day.name === state.day);
     const index = state.days.findIndex((day) => day.name === state.day);
-    const newDay = {...currentDay};
-    newDay.spots = countEmptySpots(state)
+    const newDay = { ...currentDay };
+    newDay.spots = countEmptySpots(state);
 
     const updatedDays = [...state.days];
 
     updatedDays[index] = newDay;
 
-    const updatedState = { ...state, days:updatedDays};
+    const updatedState = { ...state, days: updatedDays };
 
-    return updatedState
+    return updatedState;
   }
 
+  //sends the new created appointment information to the api and saves it in the database. 
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -74,10 +75,11 @@ export default function useApplicationData() {
             ...state, appointments
           })
         );
-        
+
       });
   }
 
+  //sends the deleted appointment information to the api and deletes it from the database. 
   function deleteInterviews(id) {
     const appointment = {
       ...state.appointments[id],
@@ -95,7 +97,7 @@ export default function useApplicationData() {
           ...state,
           appointments
         }));
-      
+
       });
   }
   return {

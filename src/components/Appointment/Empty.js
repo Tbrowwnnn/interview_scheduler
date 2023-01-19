@@ -1,5 +1,6 @@
 import React from 'react';
 
+//element that represents an empty appointment slot
 const Empty = (props) => {
   return (
 
@@ -9,9 +10,9 @@ const Empty = (props) => {
         src="images/add.png"
         alt="Add"
         onClick={props.onAdd}
-        />
+      />
     </main>
-  )
-}
+  );
+};
 
 export default Empty;
