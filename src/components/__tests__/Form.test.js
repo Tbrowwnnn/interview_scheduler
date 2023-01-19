@@ -60,9 +60,6 @@ describe("Form", () => {
       onSave={onSave} 
       />
     );
-
-    console.log("breakpoint")
-
     /* 3. Click the save button */
     fireEvent.click(getByText("Save"));
 

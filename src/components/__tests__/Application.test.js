@@ -23,7 +23,6 @@ describe("Application", () => {
 
   it("loads data, book an interview and reduces the spots remaining for the first day by 1", async () => {
     const { container, debug } = render(<Application />);
-    // const appointments = getAllByTestId(container, "appointment");
     
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -43,24 +42,14 @@ describe("Application", () => {
     
     expect(getByText(appointment, "Stop being so impatient!")).toBeInTheDocument();
 
-    // console.log(prettyDOM(appointment));
-
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
     
     const day = getAllByTestId(container, "day").find(day => 
       queryByText(day, "Monday")
       );
       
+      expect(getByText(day, "no spots remaining")).toBeInTheDocument();
       
-      
-      expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
-      
-      // debug();
-
-    
-    
-    // console.log(prettyDOM(appointments));
-
   });
 
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
@@ -88,7 +77,7 @@ describe("Application", () => {
       queryByText(day, "Monday")
       );
       
-      expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
+      expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
 
     //8 Check that hte DayListItem with the text "Monday" shows 1 spot remaining.
 
@@ -107,7 +96,7 @@ describe("Application", () => {
     fireEvent.change(getByDisplayValue(appointment, "Archie Cohen"), {
       target: { value: "Lydia Miller-Jones" }
     });
-    console.log(prettyDOM(appointment));
+
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
 
     fireEvent.click(getByText(appointment, "Save"));
