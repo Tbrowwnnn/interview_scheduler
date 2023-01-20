@@ -100,6 +100,11 @@ const Appointment = (props) => {
             message={"Could not delete appointment"}
             onClose={() => back()}
           />}
+          {mode === ERROR_SAVING &&
+          <Error
+            message={"Could not save appointment"}
+            onClose={() => back()}
+          />}
       </Fragment>
     </article>
   );
