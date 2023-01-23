@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to my interiew sheduler! interview scheduler is a single page application built with react that allows for the booking of interview appointments. 
+Welcome to my interiew scheduler! interview scheduler is a single page application built with react that allows for the booking of interview appointments. 
 
 ## Features
 
@@ -26,7 +26,17 @@ Some of the features that are included are:
 
 ## Screenshots
 
+Screenshot of the main page
+!["Main page of scheduler"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/scheduler_main.PNG)
 
+New appointment form
+!["New appointment form"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/new_interview.PNG)
+
+Main page with the new appointment saved
+!["New appointment on main page"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/new-appointment-saved.PNG)
+
+Confirmation page for deleting an appointment
+!["Delete appointment confirmation"](https://github.com/Tbrowwnnn/interview_scheduler/blob/master/docs/delete-confirm.PNG)
 
 ## Setup
 
